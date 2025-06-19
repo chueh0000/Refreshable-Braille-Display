@@ -1,0 +1,311 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 20px;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+h1 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+}
+h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+#ip-address {
+    font-weight: bold;
+    color: #34495e;
+}
+
+.main-content {
+    display: flex;
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    justify-content: center;
+    gap: 20px; /* Space between the two main sections */
+    max-width: 1200px;
+    width: 100%;
+    margin: 20px auto;
+}
+
+.electromagnet-grid {
+    flex: 1; /* Allows it to grow */
+    min-width: 300px; /* Minimum width for the grid */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.container {
+  display: grid; /* Change to grid */
+  grid-template-columns: repeat(3, 1fr); /* 3 columns for 6 electromagnets, adjust as needed */
+  gap: 10px; /* Smaller gap between dots */
+  max-width: 800px; /* Adjust max-width for a more compact matrix */
+  width: 100%; /* Take full width of parent */
+  margin: 20px auto; /* Center the grid and add some margin */
+  padding: 10px;
+  /* background-color: #e0e0e0;  Light grey background for the matrix area */
+  border-radius: 10px;
+  /* box-shadow: 0 4px 12px rgba(0,0,0,0.15); */
+}
+
+.em-control {
+  background-color: #fff;
+  border: 1px solid #c0c0c0; /* Lighter border */
+  border-radius: 8px; /* Slightly smaller radius */
+  padding: 10px; /* Reduced padding */
+  margin: 0; /* No margin as gap handles spacing */
+  width: auto; /* Let grid control width */
+  min-width: 100px; /* Minimum width for each control, adjusted for smaller screen */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.08); /* Softer shadow */
+  transition: transform 0.2s, background-color 0.3s;
+  display: flex; /* Use flexbox for internal layout */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.em-control:hover {
+  transform: scale(1.03); /* Slight scale on hover for interaction feedback */
+  background-color: #f9f9f9;
+}
+
+.dot-label {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.dot {
+  width: 50px; /* Smaller dot */
+  height: 50px; /* Smaller dot */
+  border-width: 1px; /* Thinner border */
+  border-radius: 50%;
+  background-color: #ccc;
+  margin: 5px auto; /* Reduced margin */
+  cursor: pointer;
+  border: 2px solid #aaa;
+  transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s;
+}
+
+.dot.on {
+  background-color: #4CAF50;
+  border-color: #218838;
+  box-shadow: 0 0 15px #4CAF50; /* Add glowing effect when on */
+}
+
+.dot.off {
+  background-color: #f44336;
+  border-color: #dc3545;
+}
+
+.dot.reversed {
+  background-color: #ff9800; /* Orange for reversed, distinct from green/red */
+  border-color: #e68a00;
+  box-shadow: 0 0 15px #ff9800; /* Glowing effect for reversed */
+}
+
+.controls {
+  margin-top: 10px; /* Reduced margin */
+  display: flex;
+  flex-direction: column; /* Stack controls vertically */
+  align-items: center;
+}
+
+button {
+  background-color: #6c757d;
+  color: white;
+  padding: 6px 12px; /* Smaller buttons */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 3px; /* Reduced margin */
+  font-size: 0.85em; /* Smaller font */
+  transition: background-color 0.3s ease, transform 0.1s;
+}
+
+button:hover {
+  background-color: #5a6268;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+input[type='number'] {
+  width: 70px; /* Adjusted width */
+  padding: 6px;
+  margin: 3px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  font-size: 0.85em;
+  text-align: center;
+}
+
+.status-text {
+  font-size: 0.8em; /* Smaller status text */
+  color: #555;
+  margin: 2px 0; /* Tighter spacing */
+}
+
+/* Pattern Editor Styles */
+.pattern-editor {
+    flex: 1; /* Allows it to grow */
+    min-width: 300px; /* Minimum width for the editor */
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pattern-editor h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.pattern-controls, .pattern-playback-controls {
+    margin-bottom: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px; /* Space between buttons/inputs */
+}
+.pattern-controls button, .pattern-playback-controls button {
+    background-color: #007bff;
+}
+
+.pattern-controls button:hover, .pattern-playback-controls button:hover {
+    background-color: #0056b3;
+}
+
+.pattern-info {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #444;
+}
+
+.pattern-info input {
+    margin-left: 5px;
+}
+
+.pattern-preview {
+    margin-top: 20px;
+    width: 100%;
+    max-height: 250px; /* Limit height for scrollability */
+    overflow-x: auto; /* Allow horizontal scrolling */
+    overflow-y: hidden; /* Prevent vertical scrolling */
+    white-space: nowrap; /* Keep items in a single line */
+    border: 1px solid #eee;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #f9f9f9;
+}
+
+.pattern-frame-display {
+    display: inline-flex; /* Changed to inline-flex */
+    flex-direction: column; /* Stack contents vertically */
+    justify-content: space-between; /* Distribute space */
+    vertical-align: top; /* Align to top for multi-line content */
+    margin: 5px;
+    padding: 8px; /* Increased padding */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    text-align: center;
+    width: 120px; /* Fixed width for each frame preview */
+    min-height: 140px; /* Ensure consistent height */
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+    position: relative; /* For the remove button positioning */
+}
+
+.pattern-frame-display.active-frame {
+    border-color: #28a745;
+    background-color: #e6ffe6;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.5);
+}
+
+.pattern-frame-display:hover {
+    background-color: #f0f0f0;
+}
+
+.frame-dots-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Mini grid for 6 dots */
+    gap: 3px; /* Small gap for mini dots */
+    margin-top: 5px;
+    margin-bottom: 5px; /* Add margin below dots */
+}
+
+.mini-dot {
+    width: 15px; /* Very small dot */
+    height: 15px; /* Very small dot */
+    border-radius: 50%;
+    background-color: #eee; /* Default neutral color */
+    border: 1px solid #bbb;
+    margin: 0 auto;
+}
+
+.mini-dot.on {
+    background-color: #4CAF50;
+}
+.mini-dot.off {
+    background-color: #f44336;
+}
+.mini-dot.reversed {
+    background-color: #ff9800;
+}
+
+.pattern-frame-display label {
+    font-size: 0.8em;
+    color: #666;
+    margin-top: 5px;
+}
+
+.pattern-frame-display input[type="number"] {
+    width: 60px; /* Smaller input for frame duration */
+    margin: 2px auto 5px auto; /* Adjust margin */
+    padding: 4px;
+    font-size: 0.8em;
+}
+
+.remove-frame-btn {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background-color: #dc3545; /* Red for delete */
+    color: white;
+    border: none;
+    border-radius: 50%; /* Circular button */
+    width: 20px;
+    height: 20px;
+    font-size: 0.7em;
+    line-height: 1; /* Center 'X' vertically */
+    padding: 0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: flex; /* Use flex to center 'X' */
+    align-items: center;
+    justify-content: center;
+}
+
+.remove-frame-btn:hover {
+    background-color: #c82333;
+    transform: scale(1.1);
+}

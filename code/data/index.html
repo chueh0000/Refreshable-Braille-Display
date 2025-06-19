@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ESP32 Electromagnet Control</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<h1>ESP32 Electromagnet Control</h1>
+<p>Current IP Address: <span id="ip-address">Loading...</span></p>
+
+<div class="main-content">
+    <div class="electromagnet-grid">
+        <h2>Manual Control</h2>
+        <div class="container" id="electromagnet-container">
+            </div>
+    </div>
+
+    <div class="pattern-editor">
+        <h2>Pattern Editor</h2>
+        <div class="pattern-controls">
+            <label for="default-new-frame-duration">Default New Frame Duration (ms):</label>
+            <input type="number" id="default-new-frame-duration" value="500" min="50">
+            <button onclick="recordCurrentState()">Record Current State</button>
+            <button onclick="clearPattern()">Clear Pattern</button>
+        </div>
+        <div class="pattern-playback-controls">
+            <button onclick="playPattern()">Play Pattern</button>
+            <button onclick="stopPattern()">Stop Pattern</button>
+            <button onclick="savePattern()">Save Pattern</button>
+            <button onclick="loadPattern()">Load Pattern</button>
+        </div>
+        <div class="pattern-info">
+            <p>Frames in Pattern: <span id="frame-count">0</span></p>
+        </div>
+        <div id="pattern-preview" class="pattern-preview">
+            <p id="no-frames-message" style="text-align: center; color: #888;">No frames recorded. Click "Record Current State" to begin.</p>
+        </div>
+    </div>
+</div>
+
+<script src="/script.js"></script>
+</body>
+</html>
