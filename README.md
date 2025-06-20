@@ -1,2 +1,2 @@
 # Refreshable-Braille-Display
-Group project of Practical Digital Electronics at National Taiwan University
+Group project of 2025 Practical Digital Electronics at National Taiwan University
